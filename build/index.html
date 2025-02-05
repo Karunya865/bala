@@ -3,76 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Simple HTML Page</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+        body {
             font-family: Arial, sans-serif;
-            color: white;
-        }
-        #canvas-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            background-color: #f4f4f4;
             text-align: center;
-            background: rgba(0, 0, 0, 0.5);
+            margin: 50px;
+        }
+        .container {
+            background: white;
             padding: 20px;
             border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
         }
-        a {
-            color: #00ffcc;
-            text-decoration: none;
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <div id="canvas-container"></div>
-    <div class="content">
-        <h1>Your Name</h1>
-        <p>Web Developer | Designer | Creator</p>
-        <p><a href="#">View My Work</a></p>
+    <div class="container">
+        <h1>Welcome to My Simple Page</h1>
+        <p>This is a basic HTML page with some CSS styling.</p>
     </div>
-   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById('canvas-container').appendChild(renderer.domElement);
-
-        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ffcc, wireframe: true });
-        const torusKnot = new THREE.Mesh(geometry, material);
-        scene.add(torusKnot);
-
-        camera.position.z = 50;
-
-        function animate() {
-            requestAnimationFrame(animate);
-            torusKnot.rotation.x += 0.01;
-            torusKnot.rotation.y += 0.01;
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        window.addEventListener('resize', () => {
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-        });
-    </script>
 </body>
 </html>
