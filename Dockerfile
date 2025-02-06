@@ -1,7 +1,11 @@
+# Use Nginx as the base image
 FROM nginx:latest
-# Copy the built files from the previous stage
-COPY build/ /usr/share/nginx/html
-# Expose port 80 (the default HTTP port)
+
+# Copy HTML files to the Nginx web root
+COPY . /usr/share/nginx/html
+
+# Expose port 80
 EXPOSE 80
-# Start Nginx and keep it running in the foreground
+
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
