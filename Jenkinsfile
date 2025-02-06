@@ -4,7 +4,7 @@ pipeline {
     environment {
         GITHUB_REPO = "https://github.com/your-username/your-repo.git"
         DOCKER_IMAGE = "karunya08/pushimages"
-        K8S_DEPLOYMENT = "k8s-deployment.yaml"
+        K8S_DEPLOYMENT = "deployment.yaml"
     }
 
     stages {
